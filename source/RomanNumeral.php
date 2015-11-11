@@ -7,8 +7,12 @@ class RomanNumeral {
 
     public function arabicToRoman($numeral) {
         $this->_numeral = $numeral;
+        $this->_result  = null;
 
-        $this->_result  = 'I';
+        while ($this->_numeral > 0) {
+            $this->_result .= 'I';
+            $this->_numeral --;
+        }
 
         return $this->_result;
     }

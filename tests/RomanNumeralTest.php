@@ -12,6 +12,7 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
 
     function testISubstitutions() {
         $this->assertEquals('I', $this->_numeral->arabicToRoman(1));
+        $this->assertEquals('II', $this->_numeral->arabicToRoman(2));
     }
     
 }
