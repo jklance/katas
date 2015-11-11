@@ -10,8 +10,13 @@ class RomanNumeral {
         $this->_result  = null;
 
         while ($this->_numeral > 0) {
-            $this->_result .= 'I';
-            $this->_numeral --;
+            if ($this->_numeral >= 4) {
+                $this->_result  .= 'IV';
+                $this->_numeral -= 4;
+            } else {
+                $this->_result .= 'I';
+                $this->_numeral --;
+            }
         }
 
         return $this->_result;
