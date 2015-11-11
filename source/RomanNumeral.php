@@ -11,18 +11,20 @@ class RomanNumeral {
 
         while ($this->_numeral > 0) {
             if ($this->_numeral >= 5) {
-                $this->_result  .= 'V';
-                $this->_numeral -= 5;
+                $this->_handleRomanReplacement('V', 5);
             } else if ($this->_numeral >= 4) {
-                $this->_result  .= 'IV';
-                $this->_numeral -= 4;
+                $this->_handleRomanReplacement('IV', 4);
             } else {
-                $this->_result .= 'I';
-                $this->_numeral --;
+                $this->_handleRomanReplacement('I', 1);
             }
         }
 
         return $this->_result;
+    }
+
+    private function _handleRomanReplacement($character, $increment) {
+        $this->_result  .= $character;
+        $this->_numeral -= $increment;
     }
 
 }
