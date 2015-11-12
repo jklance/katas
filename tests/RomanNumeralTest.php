@@ -68,6 +68,7 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
     function testInvalidFeature2Entries() {
         $this->assertEquals('Error!', $this->_numeral->romanToArabic(''));
         $this->assertEquals('Error!', $this->_numeral->romanToArabic('MCMF'));
+        $this->assertEquals(1066, $this->_numeral->romanToArabic('mlxvi'));
     }
 
 

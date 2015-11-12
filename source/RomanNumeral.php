@@ -7,7 +7,7 @@ class RomanNumeral {
     private $_lastVal = null;
 
     public function romanToArabic($numeral) {
-        $this->_numeral = $numeral;
+        $this->_numeral = strtoupper($numeral);
         $this->_result  = null;
         $this->_lastVal = null;
         $validNumeral   = true;
