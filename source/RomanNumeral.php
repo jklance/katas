@@ -10,7 +10,11 @@ class RomanNumeral {
         $this->_result  = null;
 
         while ($this->_numeral > 0) {
-            if ($this->_numeral >= 100) {
+            if ($this->_numeral >= 500) {
+                $this->_handleRomanReplacement( 'D', 500);
+            } else if ($this->_numeral >= 400) {
+                $this->_handleRomanReplacement('CD', 400);
+            } else if ($this->_numeral >= 100) {
                 $this->_handleRomanReplacement( 'C', 100);
             } else if ($this->_numeral >= 90) {
                 $this->_handleRomanReplacement('XC', 90);
