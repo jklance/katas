@@ -9,7 +9,11 @@ class RomanNumeral {
         $this->_numeral = $numeral;
         $this->_result  = null;
 
-        $this->_result = 1;
+        $numeralArray = str_split($this->_numeral);
+
+        foreach($numeralArray as $digit) {
+            $this->_result++;
+        }
 
         return $this->_result;
     }
