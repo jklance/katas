@@ -12,7 +12,9 @@ class RomanNumeral {
         $this->_lastVal = null;
 
         for ($c = strlen($this->_numeral) - 1; $c >= 0; $c--) {
-            if ($this->_numeral[$c] == 'C') {
+            if ($this->_numeral[$c] == 'D') {
+                $this->_handleArabicReplacement(500);
+            } else if ($this->_numeral[$c] == 'C') {
                 $this->_handleArabicReplacement(100);
             } else if ($this->_numeral[$c] == 'L') {
                 $this->_handleArabicReplacement(50);

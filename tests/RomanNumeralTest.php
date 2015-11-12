@@ -46,6 +46,10 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(155, $this->_numeral->romanToArabic('CLV'));
     }
 
+    function testDReplacements() {
+        $this->assertEquals(400, $this->_numeral->romanToArabic('CD'));
+    }
+
 
 
     /*
