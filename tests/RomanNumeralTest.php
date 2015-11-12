@@ -48,4 +48,10 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('CM',  $this->_numeral->arabicToRoman(900));
         $this->assertEquals('M',   $this->_numeral->arabicToRoman(1000));
     }
+
+    function testGivenCases() {
+        $this->assertEquals('MLXVI',     $this->_numeral->arabicToRoman(1066));
+        $this->assertEquals('MCMLXXXIX', $this->_numeral->arabicToRoman(1989));
+    }
+
 }
