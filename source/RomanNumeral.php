@@ -10,6 +10,7 @@ class RomanNumeral {
         $this->_numeral = $numeral;
         $this->_result  = null;
         $this->_lastVal = null;
+        $validNumeral   = true;
 
         if ($this->_numeral == null) $this->_result = 'Error!';
 
@@ -28,8 +29,13 @@ class RomanNumeral {
                 $this->_handleArabicReplacement(5);
             } else if ($this->_numeral[$c] == 'I') {
                 $this->_handleArabicReplacement(1);
+            } else {
+                // This means I got a character that isn't in the set of MDCLXVI
+                $validNumeral = false;
             }
         }
+
+        if (!$validNumeral) $this->_result = 'Error!';
 
         return $this->_result;
     }
