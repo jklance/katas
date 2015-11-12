@@ -60,6 +60,11 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(1573, $this->_numeral->romanToArabic('MDLXXIII'));
     }
 
+    function testGivenFeature2Cases() {
+        $this->assertEquals(1066, $this->_numeral->romanToArabic('MLXVI'));
+        $this->assertEquals(1989, $this->_numeral->romanToArabic('MCMLXXXIX'));
+    }        
+
 
 
     /*
@@ -104,12 +109,12 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('M',   $this->_numeral->arabicToRoman(1000));
     }
 
-    function testGivenCases() {
+    function testGivenFeature1Cases() {
         $this->assertEquals('MLXVI',     $this->_numeral->arabicToRoman(1066));
         $this->assertEquals('MCMLXXXIX', $this->_numeral->arabicToRoman(1989));
     }
 
-    function testInvalidEntries() {
+    function testInvalidFeature1Entries() {
         $this->assertEquals('Error!', $this->_numeral->arabicToRoman(''));
         $this->assertEquals('Error!', $this->_numeral->arabicToRoman('e'));
         $this->assertEquals('Error!', $this->_numeral->arabicToRoman(-150));
