@@ -54,4 +54,8 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('MCMLXXXIX', $this->_numeral->arabicToRoman(1989));
     }
 
+    function testInvalidEntries() {
+        $this->assertEquals('Error!', $this->_numeral->arabicToRoman(''));
+    }
+
 }
