@@ -11,6 +11,8 @@ class RomanNumeral {
         $this->_result  = null;
         $this->_lastVal = null;
 
+        if ($this->_numeral == null) $this->_result = 'Error!';
+
         for ($c = strlen($this->_numeral) - 1; $c >= 0; $c--) {
             if ($this->_numeral[$c] == 'M') {
                 $this->_handleArabicReplacement(1000);
@@ -30,6 +32,18 @@ class RomanNumeral {
         }
 
         return $this->_result;
+    }
+
+    private function _isInvalidRomanNumeral() {
+        $response = false;
+
+        if (($this->_numeral == null) || 
+          (!is_numeric($this->_numeral)) || 
+          ($this->_numeral <= 0)) {
+            $response = true;
+        }
+
+        return $response;
     }
 
     private function _handleArabicReplacement($value) {
