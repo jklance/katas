@@ -55,6 +55,9 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
 
     function testMReplacements() {
         $this->assertEquals(900, $this->_numeral->romanToArabic('CM'));
+        $this->assertEquals(1000, $this->_numeral->romanToArabic('M'));
+        $this->assertEquals(1100, $this->_numeral->romanToArabic('MC'));
+        $this->assertEquals(1573, $this->_numeral->romanToArabic('MDLXXIII'));
     }
 
 
