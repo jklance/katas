@@ -32,6 +32,10 @@ class RomanNumeralTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(15, $this->_numeral->romanToArabic('XV'));
     }
 
+    function testLReplacements() {
+        $this->assertEquals(40, $this->_numeral->romanToArabic('XL'));
+    }
+
 
 
     /*
