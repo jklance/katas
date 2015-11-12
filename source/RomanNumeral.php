@@ -4,18 +4,31 @@ class RomanNumeral {
 
     private $_numeral = null;
     private $_result  = null;
+    private $_lastVal = null;
 
     public function romanToArabic($numeral) {
         $this->_numeral = $numeral;
         $this->_result  = null;
+        $this->_lastVal = null;
 
-        $numeralArray = str_split($this->_numeral);
-
-        foreach($numeralArray as $digit) {
-            $this->_result++;
+        for ($c = strlen($this->_numeral) - 1; $c >= 0; $c--) {
+            if ($this->_numeral[$c] == 'V') {
+                $this->_handleArabicReplacement(5);
+            } else if ($this->_numeral[$c] == 'I') {
+                $this->_handleArabicReplacement(1);
+            }
         }
 
         return $this->_result;
+    }
+
+    private function _handleArabicReplacement($value) {
+        if ($this->_lastVal > $value) {
+            $this->_result -= $value;
+        } else {
+            $this->_result += $value;
+        }
+        $this->_lastVal  = $value;
     }
 
 
