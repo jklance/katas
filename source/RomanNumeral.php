@@ -10,6 +10,7 @@ class RomanNumeral {
         $this->_result  = null;
 
         if ($this->_numeral == null) $this->_result = 'Error!';
+        if (!is_numeric($this->_numeral)) $this->_result = 'Error!';
 
         while ($this->_numeral > 0) {
             if ($this->_numeral >= 1000) {
