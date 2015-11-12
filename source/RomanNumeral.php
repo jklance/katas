@@ -5,6 +5,20 @@ class RomanNumeral {
     private $_numeral = null;
     private $_result  = null;
 
+    public function romanToArabic($numeral) {
+        $this->_numeral = $numeral;
+        $this->_result  = null;
+
+        $this->_result = 1;
+
+        return $this->_result;
+    }
+
+
+
+    /*
+     * Methods for conversion from Arabic to Roman
+     */
     public function arabicToRoman($numeral) {
         $this->_numeral = $numeral;
         $this->_result  = null;
