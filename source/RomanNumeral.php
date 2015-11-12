@@ -9,9 +9,7 @@ class RomanNumeral {
         $this->_numeral = $numeral;
         $this->_result  = null;
 
-        if ($this->_numeral == null) $this->_result = 'Error!';
-        if (!is_numeric($this->_numeral)) $this->_result = 'Error!';
-        if ($this->_numeral <= 0) $this->_result = 'Error!';
+        if ($this->_isInvalidNumeral()) $this->_result = "Error!";
 
         while ($this->_numeral > 0) {
             if ($this->_numeral >= 1000) {
@@ -49,6 +47,18 @@ class RomanNumeral {
     private function _handleRomanReplacement($character, $increment) {
         $this->_result  .= $character;
         $this->_numeral -= $increment;
+    }
+
+    private function _isInvalidNumeral() {
+        $response = false;
+
+        if (($this->_numeral == null) || 
+          (!is_numeric($this->_numeral)) || 
+          ($this->_numeral <= 0)) {
+            $response = true;
+        }
+
+        return $response;
     }
 
 }
