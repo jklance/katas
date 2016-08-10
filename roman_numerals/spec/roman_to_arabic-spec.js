@@ -35,5 +35,39 @@ describe("Converts roman to arabic:", function() {
         it("will return 2 for II", function() {
             expect(numeral.convertToArabic('II')).toBe(2);
         });
+        it("will return 3 for III", function() {
+            expect(numeral.convertToArabic('III')).toBe(3);
+        });
+        it("will return 20 for XX", function() {
+            expect(numeral.convertToArabic('XX')).toBe(20);
+        });
+    });
+
+    describe("Will subtract 'I' ", function() {
+        it("from 'V' when supplied with 'IV'", function() {
+            expect(numeral.convertToArabic('IV')).toBe(4);
+        });
+        it("from 'X' when supplied with 'IX'", function() {
+            expect(numeral.convertToArabic('IX')).toBe(9);
+        });
+
+    });
+
+    describe("Will subtract 'X' ", function() {
+        it("from 'L' when supplied with 'XL'", function() {
+            expect(numeral.convertToArabic('XL')).toBe(40);
+        });
+        it("from 'C' when supplied with 'XC'", function() {
+            expect(numeral.convertToArabic('XC')).toBe(90);
+        });
+    });
+
+    describe("Will subtract 'C' ", function() {
+        it("from 'D' when supplied with 'CD'", function() {
+            expect(numeral.convertToArabic('CD')).toBe(400);
+        });
+        it("from 'M' when supplied with 'CM'", function() {
+            expect(numeral.convertToArabic('CM')).toBe(900);
+        });
     });
 });

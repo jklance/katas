@@ -10,6 +10,7 @@
  D   500
  M   1000
  */
+
 "use strict";
 
 var RomanToArabicConverter = function Constructor() {
@@ -23,7 +24,11 @@ RomanToArabicConverter.prototype.convertToArabic = function(romanNum) {
     for (var digit = 0; digit < romanNum.length; digit++) {
         var digitValue =  this._substituteArabicValue(romanNum[digit]);
         if (digitValue) {
-            returnValue += digitValue;
+            if (romanNum[digit + 1] !== undefined && this._shouldSubtract(romanNum[digit], romanNum[digit + 1])) {
+                returnValue -= digitValue;
+            } else {
+                returnValue += digitValue;
+            }
         } else {
             return null;
         }
@@ -44,4 +49,18 @@ RomanToArabicConverter.prototype._substituteArabicValue = function(romanNum) {
     }
 
     return substitutionMap[romanNum] || null;
+};
+
+RomanToArabicConverter.prototype._shouldSubtract = function(currentNumeral, nextNumeral) {
+    var subtractionMap = {
+        I: ['V', 'X'],
+        X: ['L', 'C'],
+        C: ['D', 'M']
+    };
+
+    if(subtractionMap[currentNumeral] !== undefined && subtractionMap[currentNumeral].includes(nextNumeral)) {
+        return true;
+    }
+
+    return false;
 };
