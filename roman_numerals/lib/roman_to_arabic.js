@@ -19,7 +19,17 @@ var RomanToArabicConverter = function Constructor() {
 module.exports = RomanToArabicConverter;
 
 RomanToArabicConverter.prototype.convertToArabic = function(romanNum) {
-    return this._substituteArabicValue(romanNum);
+    var returnValue = null;
+    for (var digit = 0; digit < romanNum.length; digit++) {
+        var digitValue =  this._substituteArabicValue(romanNum[digit]);
+        if (digitValue) {
+            returnValue += digitValue;
+        } else {
+            return null;
+        }
+    }
+
+    return returnValue;
 };
 
 RomanToArabicConverter.prototype._substituteArabicValue = function(romanNum) {

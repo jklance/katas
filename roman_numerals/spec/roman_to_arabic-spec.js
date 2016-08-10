@@ -7,27 +7,33 @@ it("Can instantiate the class", function() {
 describe("Converts roman to arabic:", function() {
     var numeral = new Numeral();
 
+    var expectedSubstitutions = [
+        { roman: 'I', arabic: 1 },
+        { roman: 'V', arabic: 5 },
+        { roman: 'X', arabic: 10 },
+        { roman: 'L', arabic: 50 },
+        { roman: 'C', arabic: 100 },
+        { roman: 'D', arabic: 500 },
+        { roman: 'M', arabic: 1000 }
+    ];
+
     describe("Will substitute", function() {
-        it("1 for I", function() {
-            expect(numeral.convertToArabic("I")).toBe(1);
+        expectedSubstitutions.forEach( function(substitution) {
+            it(substitution.arabic + " for " + substitution.roman, function() {
+                expect(numeral.convertToArabic(substitution.roman)).toBe(substitution.arabic);
+            });
         });
-        it("5 for V", function() {
-            expect(numeral.convertToArabic("V")).toBe(5);
+    });
+
+    describe("Will not substitute for invalid entries", function() {
+        it("will return null for invalid entries", function() {
+            expect(numeral.convertToArabic('a')).toBeNull();
         });
-        it("10 for X", function() {
-            expect(numeral.convertToArabic("X")).toBe(10);
-        });
-        it("50 for L", function() {
-            expect(numeral.convertToArabic("L")).toBe(50);
-        });
-        it("100 for C", function() {
-            expect(numeral.convertToArabic("C")).toBe(100);
-        });
-        it("500 for D", function() {
-            expect(numeral.convertToArabic("D")).toBe(500);
-        });
-        it("1000 for M", function() {
-            expect(numeral.convertToArabic("M")).toBe(1000);
+    });
+
+    describe("Will make multiple substitutions", function() {
+        it("will return 2 for II", function() {
+            expect(numeral.convertToArabic('II')).toBe(2);
         });
     });
 });
